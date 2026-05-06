@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Alt Data Forge</title>
+  <meta name="description" content="Independent data refinery. Refined ticker-keyed daily panels from public sources. New Jersey.">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="site-header">
+    <a href="/" class="brand">Alt Data Forge</a>
+    <nav><a href="/about.html">About</a></nav>
+  </header>
+
+  <main class="home">
+    <h1 class="hero">
+      <span class="line-primary">Alternative Data</span>
+      <span class="line-accent">for Markets</span>
+    </h1>
+
+    <section class="contact">
+      <p class="form-heading">Get in touch</p>
+      <p class="form-sub">Public-data panels, refined for the buy-side. Send a sample request — I read every email.</p>
+
+      <!--
+        Form action: replace YOUR_FORMSPREE_ID with the real ID after Alex creates a Formspree account.
+        - Sign up at https://formspree.io (free tier: 50 submissions/month)
+        - Create a new form, set notification email to AlexB@AltDataForge.com
+        - Copy the form's endpoint URL and replace the action attribute below
+      -->
+      <form class="contact-form" action="https://formspree.io/f/YOUR_FORMSPREE_ID" method="POST">
+        <label>
+          <span>Name</span>
+          <input type="text" name="name" required autocomplete="name">
+        </label>
+        <label>
+          <span>Email</span>
+          <input type="email" name="email" required autocomplete="email">
+        </label>
+        <label>
+          <span>Message</span>
+          <textarea name="message" rows="5" required></textarea>
+        </label>
+        <button type="submit">Submit</button>
+      </form>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>Galloway, NJ 08205</p>
+    <p>AlexB@AltDataForge.com</p>
+    <p class="copyright">&copy; 2026 Alt Data Forge</p>
+  </footer>
+</body>
+</html>

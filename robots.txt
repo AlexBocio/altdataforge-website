@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://altdataforge.com/sitemap.xml

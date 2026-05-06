@@ -1,0 +1,205 @@
+/* Alt Data Forge — minimalist v1
+ *
+ * Locked v3 design: dual-color hero, contact-form-as-landing, About page.
+ * No images, no JS, no external dependencies. ~150 lines.
+ *
+ * Color palette:
+ *   --ink-primary  : near-black, dark line of hero, body copy
+ *   --ink-accent   : medium gray, light line of hero, secondary copy
+ *   --bg           : white
+ *   --rule         : pale gray for borders / dividers
+ */
+
+:root {
+  --ink-primary: #111111;
+  --ink-accent: #8a8a8a;
+  --ink-link: #2a4a7a;
+  --bg: #ffffff;
+  --rule: #e5e5e5;
+  --muted: #6a6a6a;
+
+  --max-width: 760px;
+  --side-pad: clamp(1.25rem, 4vw, 2rem);
+
+  --font-stack: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+}
+
+* { box-sizing: border-box; }
+
+html, body {
+  margin: 0;
+  padding: 0;
+  background: var(--bg);
+  color: var(--ink-primary);
+  font-family: var(--font-stack);
+  font-size: 17px;
+  line-height: 1.55;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+a {
+  color: var(--ink-link);
+  text-decoration: none;
+}
+a:hover { text-decoration: underline; }
+
+/* Header */
+.site-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.5rem var(--side-pad);
+  max-width: var(--max-width);
+  margin: 0 auto;
+}
+.site-header .brand {
+  font-weight: 600;
+  font-size: 1rem;
+  color: var(--ink-primary);
+  letter-spacing: 0.01em;
+}
+.site-header nav a {
+  font-size: 0.95rem;
+  color: var(--ink-primary);
+}
+.site-header nav a.active {
+  color: var(--muted);
+  cursor: default;
+  pointer-events: none;
+}
+
+/* Home — hero + form */
+main.home {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 4rem var(--side-pad) 3rem;
+}
+
+.hero {
+  font-size: clamp(2.5rem, 7vw, 4.5rem);
+  font-weight: 700;
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+  margin: 0 0 3rem 0;
+}
+.hero .line-primary,
+.hero .line-accent {
+  display: block;
+}
+.hero .line-primary { color: var(--ink-primary); }
+.hero .line-accent  { color: var(--ink-accent); }
+
+/* Contact form */
+.contact { margin-top: 2rem; }
+.form-heading {
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--muted);
+  margin: 0 0 0.5rem 0;
+}
+.form-sub {
+  font-size: 1rem;
+  color: var(--ink-primary);
+  margin: 0 0 2rem 0;
+}
+
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  max-width: 520px;
+}
+.contact-form label {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+.contact-form label span {
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--muted);
+}
+.contact-form input,
+.contact-form textarea {
+  font-family: inherit;
+  font-size: 1rem;
+  padding: 0.75rem 0.9rem;
+  border: 1px solid var(--rule);
+  border-radius: 4px;
+  background: var(--bg);
+  color: var(--ink-primary);
+  transition: border-color 0.15s ease;
+  resize: vertical;
+}
+.contact-form input:focus,
+.contact-form textarea:focus {
+  outline: none;
+  border-color: var(--ink-primary);
+}
+.contact-form button {
+  align-self: flex-start;
+  font-family: inherit;
+  font-size: 1rem;
+  font-weight: 500;
+  padding: 0.75rem 1.5rem;
+  border: 1px solid var(--ink-primary);
+  background: var(--ink-primary);
+  color: var(--bg);
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background 0.15s ease;
+}
+.contact-form button:hover {
+  background: #000000;
+}
+
+/* About page */
+main.about {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 4rem var(--side-pad) 3rem;
+}
+.about-heading {
+  font-size: clamp(2rem, 5vw, 3rem);
+  font-weight: 700;
+  line-height: 1.1;
+  letter-spacing: -0.015em;
+  margin: 0 0 2.5rem 0;
+}
+main.about p {
+  font-size: 1.05rem;
+  margin: 0 0 1.5rem 0;
+  color: var(--ink-primary);
+}
+main.about p.kicker {
+  font-style: italic;
+  color: var(--muted);
+}
+main.about p.cta {
+  margin-top: 2rem;
+  font-size: 1rem;
+}
+
+/* Footer */
+.site-footer {
+  max-width: var(--max-width);
+  margin: 4rem auto 0 auto;
+  padding: 2rem var(--side-pad) 2.5rem;
+  border-top: 1px solid var(--rule);
+  font-size: 0.9rem;
+  color: var(--muted);
+}
+.site-footer p { margin: 0.25rem 0; }
+.site-footer .copyright { margin-top: 1rem; }
+
+/* Mobile tweak */
+@media (max-width: 480px) {
+  .site-header { padding-top: 1rem; padding-bottom: 1rem; }
+  main.home, main.about { padding-top: 2.5rem; }
+  .hero { margin-bottom: 2rem; }
+}
