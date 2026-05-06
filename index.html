@@ -24,12 +24,16 @@
       <p class="form-sub">Public-data panels, refined for the buy-side. Send a sample request — I read every email.</p>
 
       <!--
-        Form action: replace YOUR_FORMSPREE_ID with the real ID after Alex creates a Formspree account.
-        - Sign up at https://formspree.io (free tier: 50 submissions/month)
-        - Create a new form, set notification email to AlexB@AltDataForge.com
-        - Copy the form's endpoint URL and replace the action attribute below
+        Form posts to Formspree (free tier: 50 submissions/month).
+        Notification email: AlexB@AltDataForge.com
+        Form ID: xrejlgpn (https://formspree.io/forms/xrejlgpn)
+        After submit, user redirects to Formspree's default thank-you page.
+        To customize the thank-you destination, add: <input type="hidden" name="_next" value="https://altdataforge.com/thanks.html">
       -->
-      <form class="contact-form" action="https://formspree.io/f/YOUR_FORMSPREE_ID" method="POST">
+      <form class="contact-form" action="https://formspree.io/f/xrejlgpn" method="POST">
+        <input type="hidden" name="_subject" value="altdataforge.com contact form submission">
+        <!-- Honeypot — bots fill all fields; real users don't see this; Formspree drops submissions where _gotcha is filled -->
+        <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off">
         <label>
           <span>Name</span>
           <input type="text" name="name" required autocomplete="name">
