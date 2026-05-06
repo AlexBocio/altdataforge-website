@@ -24,20 +24,24 @@ altdataforge-website/
 
 ## Local preview
 
-No build step needed. Just open `index.html` in a browser, or serve with any static server:
+No build step needed. Just open `index.html` in a browser, or serve with any static server.
+
+**Note: use port 8001, not 8000.** Port 8000 is reserved for the Phoenix monorepo's daily dashboard (`mkdocs serve -a 127.0.0.1:8000`). Stacking on 8000 will cause port-binding conflicts.
 
 ```bash
 # Option 1: Python (built-in)
 cd altdataforge-website
-python -m http.server 8000
-# Visit http://localhost:8000/
+python -m http.server 8001
+# Visit http://localhost:8001/
 
 # Option 2: Node http-server
-npx http-server -p 8000
-# Visit http://localhost:8000/
+npx http-server -p 8001
+# Visit http://localhost:8001/
 ```
 
 The site renders identically locally and in production.
+
+**Why open via HTTP server, not `file://`:** the navigation uses absolute paths (`/about.html`) so it resolves correctly on the deployed site. Opening `index.html` directly via `file://` makes those paths break (browser tries to find `/about.html` at the filesystem root). HTTP serving fixes this.
 
 ---
 
