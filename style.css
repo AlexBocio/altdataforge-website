@@ -1,22 +1,19 @@
-/* Alt Data Forge — minimalist v1
+/* Alt Data Forge — minimalist v4
  *
- * Locked v3 design: dual-color hero, contact-form-as-landing, About page.
- * No images, no JS, no external dependencies. ~150 lines.
- *
- * Color palette:
- *   --ink-primary  : near-black, dark line of hero, body copy
- *   --ink-accent   : medium gray, light line of hero, secondary copy
- *   --bg           : white
- *   --rule         : pale gray for borders / dividers
+ * Locked v4 design: institutional voice, refined-research-infrastructure positioning.
+ * Hero is single-color brand name + subtitle (no more dual-color split).
+ * About page expanded with Philosophy section + editorial founder credit at end.
+ * No images, no JS, no external dependencies.
  */
 
 :root {
   --ink-primary: #111111;
-  --ink-accent: #8a8a8a;
+  --ink-accent: #5a5a5a;
   --ink-link: #2a4a7a;
   --bg: #ffffff;
   --rule: #e5e5e5;
   --muted: #6a6a6a;
+  --very-muted: #9a9a9a;
 
   --max-width: 760px;
   --side-pad: clamp(1.25rem, 4vw, 2rem);
@@ -44,7 +41,7 @@ a {
 }
 a:hover { text-decoration: underline; }
 
-/* Header */
+/* ---------- Header ---------- */
 .site-header {
   display: flex;
   justify-content: space-between;
@@ -69,7 +66,7 @@ a:hover { text-decoration: underline; }
   pointer-events: none;
 }
 
-/* Home — hero + form */
+/* ---------- Home: hero + subtitle + description ---------- */
 main.home {
   max-width: var(--max-width);
   margin: 0 auto;
@@ -81,29 +78,42 @@ main.home {
   font-weight: 700;
   line-height: 1.05;
   letter-spacing: -0.02em;
-  margin: 0 0 3rem 0;
+  color: var(--ink-primary);
+  margin: 0 0 1rem 0;
 }
-.hero .line-primary,
-.hero .line-accent {
-  display: block;
-}
-.hero .line-primary { color: var(--ink-primary); }
-.hero .line-accent  { color: var(--ink-accent); }
 
-/* Contact form */
+.subtitle {
+  font-size: clamp(1.25rem, 2.5vw, 1.5rem);
+  font-weight: 400;
+  line-height: 1.35;
+  color: var(--ink-accent);
+  margin: 0 0 2.5rem 0;
+  max-width: 620px;
+}
+
+.description {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: var(--ink-primary);
+  margin: 0 0 3rem 0;
+  max-width: 620px;
+}
+
+/* ---------- Contact section ---------- */
 .contact { margin-top: 2rem; }
+
 .form-heading {
-  font-size: 0.85rem;
+  font-size: 1.15rem;
   font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
-  color: var(--muted);
+  letter-spacing: 0.005em;
+  color: var(--ink-primary);
   margin: 0 0 0.5rem 0;
 }
 .form-sub {
-  font-size: 1rem;
-  color: var(--ink-primary);
-  margin: 0 0 2rem 0;
+  font-size: 0.95rem;
+  color: var(--muted);
+  margin: 0 0 1.75rem 0;
+  line-height: 1.55;
 }
 
 .contact-form {
@@ -158,7 +168,21 @@ main.home {
   background: #000000;
 }
 
-/* About page */
+/* ---------- Data coverage pills (under-form) ---------- */
+.data-coverage {
+  margin-top: 2.5rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--rule);
+}
+.coverage-row {
+  font-size: 0.85rem;
+  color: var(--very-muted);
+  letter-spacing: 0.02em;
+  margin: 0 0 0.5rem 0;
+  line-height: 1.5;
+}
+
+/* ---------- About page ---------- */
 main.about {
   max-width: var(--max-width);
   margin: 0 auto;
@@ -175,31 +199,86 @@ main.about p {
   font-size: 1.05rem;
   margin: 0 0 1.5rem 0;
   color: var(--ink-primary);
+  line-height: 1.6;
 }
-main.about p.kicker {
+main.about p.kicker,
+main.about p.closing {
   font-style: italic;
-  color: var(--muted);
-}
-main.about p.cta {
-  margin-top: 2rem;
-  font-size: 1rem;
+  color: var(--ink-accent);
 }
 
-/* Footer */
+/* Bullet list — used in both About body + Philosophy */
+.focus-list {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 1.75rem 0;
+}
+.focus-list li {
+  font-size: 1.05rem;
+  color: var(--ink-primary);
+  margin: 0 0 0.4rem 0;
+  padding-left: 1.25rem;
+  position: relative;
+}
+.focus-list li::before {
+  content: "—";
+  position: absolute;
+  left: 0;
+  color: var(--very-muted);
+}
+
+/* Section break between About body and Philosophy */
+.section-break {
+  border: none;
+  border-top: 1px solid var(--rule);
+  margin: 3rem 0 3rem 0;
+}
+
+/* Philosophy section heading */
+.philosophy h2 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  margin: 0 0 1.5rem 0;
+  color: var(--ink-primary);
+}
+
+/* Founder editorial credit at end of About page */
+.founder-credit {
+  margin-top: 4rem;
+  padding-top: 2rem;
+  border-top: 1px solid var(--rule);
+  font-size: 0.85rem;
+  font-style: italic;
+  color: var(--very-muted);
+  text-align: center;
+}
+
+/* ---------- Footer ---------- */
 .site-footer {
   max-width: var(--max-width);
   margin: 4rem auto 0 auto;
-  padding: 2rem var(--side-pad) 2.5rem;
+  padding: 2.5rem var(--side-pad) 2.5rem;
   border-top: 1px solid var(--rule);
   font-size: 0.9rem;
   color: var(--muted);
 }
+.site-footer .tagline {
+  font-style: italic;
+  font-size: 1rem;
+  color: var(--ink-accent);
+  margin: 0 0 1.25rem 0;
+  letter-spacing: 0.005em;
+}
 .site-footer p { margin: 0.25rem 0; }
-.site-footer .copyright { margin-top: 1rem; }
+.site-footer .copyright { margin-top: 1rem; color: var(--very-muted); }
 
-/* Mobile tweak */
+/* ---------- Mobile ---------- */
 @media (max-width: 480px) {
   .site-header { padding-top: 1rem; padding-bottom: 1rem; }
   main.home, main.about { padding-top: 2.5rem; }
-  .hero { margin-bottom: 2rem; }
+  .hero { margin-bottom: 0.75rem; }
+  .subtitle { margin-bottom: 2rem; }
+  .description { margin-bottom: 2.5rem; }
+  .data-coverage { margin-top: 2rem; }
 }

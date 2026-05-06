@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Alt Data Forge</title>
-  <meta name="description" content="Independent data refinery. Refined ticker-keyed daily panels from public sources. New Jersey.">
+  <meta name="description" content="Public-data refinery. Point-in-time, contract-ready research datasets for funds, analysts, and quantitative research teams.">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -14,25 +14,17 @@
   </header>
 
   <main class="home">
-    <h1 class="hero">
-      <span class="line-primary">Alternative Data</span>
-      <span class="line-accent">for Markets</span>
-    </h1>
+    <h1 class="hero">Alt Data Forge</h1>
+    <p class="subtitle">We refine public data into research infrastructure.</p>
+
+    <p class="description">Public regulatory datasets refined into point-in-time, contract-ready research panels for funds, analysts, and quantitative research teams.</p>
 
     <section class="contact">
-      <p class="form-heading">Get in touch</p>
-      <p class="form-sub">Public-data panels, refined for the buy-side. Send a sample request — I read every email.</p>
+      <h2 class="form-heading">Research &amp; Data Inquiries</h2>
+      <p class="form-sub">Request a sample dataset, ask about coverage, or discuss custom builds.<br>Every inquiry is reviewed directly.</p>
 
-      <!--
-        Form posts to Formspree (free tier: 50 submissions/month).
-        Notification email: AlexB@AltDataForge.com
-        Form ID: xrejlgpn (https://formspree.io/forms/xrejlgpn)
-        After submit, user redirects to Formspree's default thank-you page.
-        To customize the thank-you destination, add: <input type="hidden" name="_next" value="https://altdataforge.com/thanks.html">
-      -->
       <form class="contact-form" action="https://formspree.io/f/xrejlgpn" method="POST">
         <input type="hidden" name="_subject" value="altdataforge.com contact form submission">
-        <!-- Honeypot — bots fill all fields; real users don't see this; Formspree drops submissions where _gotcha is filled -->
         <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off">
         <label>
           <span>Name</span>
@@ -48,10 +40,16 @@
         </label>
         <button type="submit">Submit</button>
       </form>
+
+      <div class="data-coverage">
+        <p class="coverage-row">FDA &middot; CMS &middot; FINRA RegSHO &middot; SEC EDGAR &middot; USPTO &middot; ClinicalTrials.gov</p>
+        <p class="coverage-row">Point-in-time integrity &middot; Provenance tracking &middot; Contract-ready delivery</p>
+      </div>
     </section>
   </main>
 
   <footer class="site-footer">
+    <p class="tagline">Refined public data for funds that do their own work.</p>
     <p>Galloway, NJ 08205</p>
     <p>AlexB@AltDataForge.com</p>
     <p class="copyright">&copy; 2026 Alt Data Forge</p>
