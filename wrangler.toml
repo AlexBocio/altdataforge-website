@@ -1,0 +1,9 @@
+name = "altdataforge-website"
+compatibility_date = "2026-05-06"
+
+# Serve the entire repo root as static assets.
+# No Worker code — pure static site (HTML + CSS + robots.txt + sitemap.xml).
+# Cloudflare's deployer auto-excludes .git/, .gitignore, README.md, wrangler.toml.
+[assets]
+directory = "."
+not_found_handling = "404-page"
